@@ -11,7 +11,7 @@
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost/cursojpa?useSSL=false&amp;serverTimezone=UTC" />
+				value="jdbc:mysql://localhost/cursojpacod3r?useSSL=false&amp;serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.user" value="root" />
