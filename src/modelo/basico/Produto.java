@@ -2,31 +2,38 @@ package modelo.basico;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+
 
 @Entity
-public class Usuario implements Serializable {
+@Table(name = "tb_produto")
+public class Produto implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "prod_nome", nullable = false, length = 200)
 	private String nome;
 	
-	private String email;
-	
-	public Usuario() {
-		
+	@Column(name = "prod_preco", nullable = false, precision = 11, scale = 2)
+	private Double preco;
+
+	public Produto() {
+
 	}
 
-	public Usuario(String nome, String email) {
+	public Produto(String nome, Double preco) {
 		super();
 		this.nome = nome;
-		this.email = email;
+		this.preco = preco;
 	}
 
 	public Long getId() {
@@ -45,17 +52,12 @@ public class Usuario implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	public Double getPreco() {
+		return preco;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + "]";
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
 
 	@Override
@@ -74,7 +76,7 @@ public class Usuario implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
+		Produto other = (Produto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -82,11 +84,6 @@ public class Usuario implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
 	
 	
 
