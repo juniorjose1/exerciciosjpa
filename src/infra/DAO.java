@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 public class DAO<E> {
 
 	private static EntityManagerFactory emf;
-	private EntityManager em;
+	protected EntityManager em;
 	private Class<E> classe;
 	
 	static {
@@ -66,8 +66,14 @@ public class DAO<E> {
 		return this.obterTodos(10, 0);
 	}
 	
-	public E obterUsuario(Class<E> classe, Long id){
-		E usuarioObtido = em.find(classe, id);
-		return usuarioObtido;
+	public E obter(Class<E> classe, Long id){
+		E obtido = em.find(classe, id);
+		return obtido;
+	}
+	
+	public String remover(Class<E> classe, Long id) {
+		E obtido = em.find(classe, id);
+		em.remove(obtido);
+		return String.format(classe.getName() + " com ID: " + id + " removido com sucesso.");
 	}
 }

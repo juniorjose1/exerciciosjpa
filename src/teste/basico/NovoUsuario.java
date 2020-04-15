@@ -25,7 +25,6 @@ public class NovoUsuario {
 		
 		em.close();
 		emf.close();
-
 		
 	}
 

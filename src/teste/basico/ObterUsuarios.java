@@ -12,12 +12,12 @@ import modelo.basico.Usuario;
 public class ObterUsuarios {
 
 	public static void main(String[] args) {
-		
+
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exercicios-jpa");
 		EntityManager em = emf.createEntityManager();
-		
+
 		String jpql = "Select u from Usuario u";
-		
+
 		TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class);
 		query.setMaxResults(2);
 		
@@ -27,9 +27,10 @@ public class ObterUsuarios {
 			System.out.println("ID: " + usuario.getId() + " Nome: " + usuario.getNome());
 		}
 		
+
 		em.close();
 		emf.close();
-		
+
 	}
 
 }
