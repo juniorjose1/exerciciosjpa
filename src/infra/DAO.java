@@ -40,6 +40,12 @@ public class DAO<E> {
 		return this;
 	}
 	
+	public DAO<E> fechar(){
+		em.close();
+		emf.close();
+		return this;
+	}
+	
 	public DAO<E> incluir(E entidade){
 		em.persist(entidade);
 		return this;
