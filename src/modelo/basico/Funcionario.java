@@ -1,41 +1,32 @@
-package modelo.umpraum;
+package modelo.basico;
+
+import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
-@Table(name = "assentos")
-public class Assento {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Funcionario implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
+	private Integer id;
+	
 	private String nome;
-
-	@OneToOne(mappedBy = "assento")
-	private Cliente cliente;
-
-	public Assento() {
-
+	
+	private Double salario;
+	
+	public Funcionario() {
+		
 	}
 
-	public Assento(Long id, String nome) {
-		super();
+	public Funcionario(Integer id, String nome, Double salario) {
 		this.id = id;
 		this.nome = nome;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+		this.salario = salario;
 	}
 
 	public String getNome() {
@@ -46,12 +37,12 @@ public class Assento {
 		this.nome = nome;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Double getSalario() {
+		return salario;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setSalario(Double salario) {
+		this.salario = salario;
 	}
 
 	@Override
@@ -70,7 +61,7 @@ public class Assento {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Assento other = (Assento) obj;
+		Funcionario other = (Funcionario) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -78,5 +69,8 @@ public class Assento {
 			return false;
 		return true;
 	}
+	
+	
+	
 
 }

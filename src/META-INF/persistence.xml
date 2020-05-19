@@ -9,13 +9,23 @@
 
 		<class>modelo.basico.Usuario</class>
 		<class>modelo.basico.Produto</class>
+		<class>modelo.basico.Desenvolvedor</class>
+		<class>modelo.basico.Funcionario</class>
+		<class>modelo.basico.Gerente</class>
 		<class>modelo.umpraum.Assento</class>
 		<class>modelo.umpraum.Cliente</class>
-		
+		<class>modelo.umpramuitos.ItemPedido</class>
+		<class>modelo.umpramuitos.Pedido</class>
+		<class>modelo.muitospramuitos.Tio</class>
+		<class>modelo.muitospramuitos.Sobrinho</class>
+		<class>modelo.basico.Pagamento</class>
+		<class>modelo.basico.PagamentoPorBoleto</class>
+		<class>modelo.basico.PagamentoPorCartao</class>
+
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://192.168.99.100:3306/cursojpacod3r?useSSL=false&amp;serverTimezone=UTC" />
+				value="jdbc:mysql://localhost:3306/cursojpacod3r?useSSL=false&amp;serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.user" value="root" />
